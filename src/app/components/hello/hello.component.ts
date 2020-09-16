@@ -1,30 +1,15 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-hello',
   templateUrl: './hello.component.html',
-  styleUrls: ['./hello.component.scss']
+  styleUrls: ['./hello.component.scss'],
 })
 export class HelloComponent implements OnInit {
-  @Input() name: string;
-  @Output() submitted = new EventEmitter();
+  @Input()
+  name: string;
 
-  value = 100;
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit(): void {
-    setInterval(() => {
-      this.value += 100;
-    }, 1000);
-  }
-
-  public getName(): string {
-    return "Max from Methode";
-  }
-
-  public resetValue() {
-    this.submitted.emit(this.value);
-    this.value = 0;
-  }
+  ngOnInit(): void {}
 }

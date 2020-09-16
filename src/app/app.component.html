@@ -1,4 +1,8 @@
 <mat-toolbar color="primary">
   <span>Training App</span>
 </mat-toolbar>
+<app-hello [name]="myName"></app-hello>
+<app-hello-list></app-hello-list>
+<app-name-input (enterPressed)="setName($event)"></app-name-input>
 <app-chuck-norris></app-chuck-norris>
+<app-weather></app-weather>

@@ -1,0 +1,7 @@
+<input
+  type="text"
+  class="form-control"
+  (keyup)="onKeyPress($event)"
+  (keyup.enter)="onEnterKeypress()"
+/>
+<button (click)="onEnterKeypress()">Submit</button>
