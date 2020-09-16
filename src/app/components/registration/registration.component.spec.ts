@@ -1,8 +1,8 @@
-import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import {RegistrationComponent} from './registration.component';
-import {ReactiveFormsModule} from '@angular/forms';
-import {UserService} from 'src/app/weather/services/user.service';
+import { RegistrationComponent } from './registration.component';
+import { ReactiveFormsModule } from '@angular/forms';
+// import {UserService} from 'src/app/weather/services/user.service';
 
 describe('RegistrationComponent', () => {
   let component: RegistrationComponent;
@@ -10,15 +10,14 @@ describe('RegistrationComponent', () => {
   let userServiceMock;
 
   beforeEach(async(() => {
-    userServiceMock = jasmine.createSpyObj(['create'])
+    userServiceMock = jasmine.createSpyObj(['create']);
     TestBed.configureTestingModule({
-      declarations: [ RegistrationComponent ],
-      imports:[ReactiveFormsModule],
-      providers:[
-        {provide: UserService, useValue: userServiceMock}
-      ]
-    })
-    .compileComponents();
+      declarations: [RegistrationComponent],
+      imports: [ReactiveFormsModule],
+      providers: [
+        //{provide: UserService, useValue: userServiceMock}
+      ],
+    }).compileComponents();
   }));
 
   beforeEach(() => {
