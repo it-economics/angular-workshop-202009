@@ -6,7 +6,7 @@ import { map, tap } from 'rxjs/operators';
 import { WeatherData } from './../models/weather';
 
 export const endpoint =
-  'http://api.openweathermap.org/data/2.5/weather?q=munich,de&units=metric&appid=a0191a5d64339913c4c10d7fea9774ba';
+  'http://api.openweathermap.org/data/2.5/weather?q=munich,de&units=metric';
 
 @Injectable({
   providedIn: 'root',

@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { HelloComponent } from './components/hello/hello.component';
@@ -12,6 +12,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { WeatherComponent } from './components/weather/weather.component';
 import { NameInputComponent } from './components/name-input/name-input.component';
 import { HelloListComponent } from './components/hello-list/hello-list.component';
+import { AppIdinterceptorService } from "./services/app-idinterceptor.service";
+import { TemperaturPipe } from './pipes/temperatur.pipe';
 
 @NgModule({
   declarations: [
@@ -21,6 +23,7 @@ import { HelloListComponent } from './components/hello-list/hello-list.component
     HelloListComponent,
     ChuckNorrisComponent,
     WeatherComponent,
+    TemperaturPipe,
   ],
   imports: [
     BrowserModule,
@@ -30,7 +33,9 @@ import { HelloListComponent } from './components/hello-list/hello-list.component
     MatToolbarModule,
     NgbModule,
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AppIdinterceptorService, multi: true }
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
