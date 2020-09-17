@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
 interface Credentials {
-  userName: string;
+  email: string;
   password: string;
 }
 
@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit {
   loginError: boolean;
 
   model: Credentials = {
-    userName: undefined,
+    email: undefined,
     password: undefined,
   };
 

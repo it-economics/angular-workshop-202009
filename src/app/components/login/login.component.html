@@ -3,61 +3,68 @@
     <div class="col-sm-12 col-md-8 col-lg-6">
       <form #loginForm="ngForm" (ngSubmit)="login()">
         <div class="form-group">
-          <label for="userName">Benutzername</label>
+          <label for="email">Email</label>
           <input
-            type="text"
-            name="userName"
-            #nameInput="ngModel"
+            type="email"
+            name="email"
             class="form-control"
-            [(ngModel)]="model.userName"
+            [ngModel]="model.email"
+            (ngModelChange)="model.email = $event"
+            required
+            #email="ngModel"
+            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
             required
           />
+        </div>
+        <div
+          class="alert alert-danger"
+          [hidden]="email.valid || email.pristine"
+        >
+          Email fehlt oder nicht gültig!
+        </div>
+        <div *ngIf="email.touched && !email.valid" class="alert alert-danger">
+          <p *ngIf="email.errors?.required">Email is a required field!</p>
+          <p *ngIf="email.errors?.pattern">This is not a valid Email!!!</p>
         </div>
         <!-- set to false to hide the states -->
         <ng-container *ngIf="true">
           <p>
             Valid:
-            <span [class]="nameInput.valid ? 'green' : 'red'">{{
-              nameInput.valid
+            <span [class]="email.valid ? 'green' : 'red'">{{
+              email.valid
             }}</span>
           </p>
           <p>
             Invalid:
-            <span [class]="nameInput.invalid ? 'green' : 'red'">{{
-              nameInput.invalid
+            <span [class]="email.invalid ? 'green' : 'red'">{{
+              email.invalid
             }}</span>
           </p>
           <p>
             Pristine:
-            <span [class]="nameInput.pristine ? 'green' : 'red'">{{
-              nameInput.pristine
+            <span [class]="email.pristine ? 'green' : 'red'">{{
+              email.pristine
             }}</span>
           </p>
           <p>
             Dirty:
-            <span [class]="nameInput.dirty ? 'green' : 'red'">{{
-              nameInput.dirty
+            <span [class]="email.dirty ? 'green' : 'red'">{{
+              email.dirty
             }}</span>
           </p>
           <p>
             Touched:
-            <span [class]="nameInput.touched ? 'green' : 'red'">{{
-              nameInput.touched
+            <span [class]="email.touched ? 'green' : 'red'">{{
+              email.touched
             }}</span>
           </p>
           <p>
             Untouched:
-            <span [class]="nameInput.untouched ? 'green' : 'red'">{{
-              nameInput.untouched
+            <span [class]="email.untouched ? 'green' : 'red'">{{
+              email.untouched
             }}</span>
           </p>
         </ng-container>
-        <div
-          class="alert alert-danger"
-          [hidden]="nameInput.valid || nameInput.pristine"
-        >
-          Du musst ein Passwort eingeben!
-        </div>
         <div class="form-group">
           <label for="password">Password</label>
           <input
