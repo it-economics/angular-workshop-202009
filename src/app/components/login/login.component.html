@@ -13,6 +13,7 @@
             required
             #email="ngModel"
             pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+            appForbiddenEmailValidator="test@test.com"
             required
           />
         </div>
@@ -25,6 +26,9 @@
         <div *ngIf="email.touched && !email.valid" class="alert alert-danger">
           <p *ngIf="email.errors?.required">Email is a required field!</p>
           <p *ngIf="email.errors?.pattern">This is not a valid Email!!!</p>
+          <p *ngIf="email.errors?.fordbiddenEmail">
+            This Email is not allowed!!!
+          </p>
         </div>
         <!-- set to false to hide the states -->
         <ng-container *ngIf="true">

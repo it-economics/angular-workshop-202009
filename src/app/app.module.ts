@@ -17,6 +17,7 @@ import { TemperaturPipe } from './pipes/temperatur.pipe';
 import { WeatherComponent } from './components/weather/weather.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegistrationComponent } from './components/registration/registration.component';
+import { CustomValidatorDirective } from './directives/custom-validator.directive';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { RegistrationComponent } from './components/registration/registration.co
     TemperaturPipe,
     LoginComponent,
     RegistrationComponent,
+    CustomValidatorDirective,
   ],
   imports: [
     BrowserModule,
