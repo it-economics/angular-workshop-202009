@@ -4,10 +4,11 @@ import { WeatherComponent } from './weather.component';
 import { WeatherService } from './../../services/weather.service';
 import { of } from 'rxjs';
 import { By } from '@angular/platform-browser';
+import { TemperaturPipe } from "../../pipes/temperatur.pipe";
 
 const expected = { temp: '35' };
 
-xdescribe('WeatherComponent', () => {
+describe('WeatherComponent', () => {
   let component: WeatherComponent;
   let fixture: ComponentFixture<WeatherComponent>;
   let weatherServiceMock: any;
@@ -16,7 +17,10 @@ xdescribe('WeatherComponent', () => {
     weatherServiceMock = jasmine.createSpyObj(['getCurrentTemp']);
     weatherServiceMock.getCurrentTemp.and.returnValue(of(expected));
     await TestBed.configureTestingModule({
-      declarations: [WeatherComponent],
+      declarations: [
+        TemperaturPipe,
+        WeatherComponent
+      ],
       providers: [{ provide: WeatherService, useValue: weatherServiceMock }],
     }).compileComponents();
   });
