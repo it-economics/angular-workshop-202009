@@ -3,5 +3,6 @@
   <a class="navbar-text" routerLink="/chuck-norris">Chuck Norris</a>
   <a class="navbar-text" routerLink="/weather">Weather</a>
 </nav>
+<div *ngIf="!!myName">{{ myName }}</div>
 
 <router-outlet></router-outlet>

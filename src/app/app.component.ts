@@ -1,3 +1,4 @@
+import { AuthService } from 'src/app/services/auth.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -6,7 +7,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  myName = 'Max22';
+  myName = '';
+
+  constructor(private authService: AuthService) {
+    authService.status$().subscribe((result) => {
+      if (result.authenticated) {
+        this.myName = result.user;
+      }
+    });
+  }
 
   public setName(event) {
     this.myName = event;

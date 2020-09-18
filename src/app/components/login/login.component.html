@@ -37,7 +37,7 @@
           <div>{{ model.password }}</div>
         </div>
         <button
-          [disabled]="!loginForm.form.valid"
+          [disabled]="!loginForm.form.valid && false"
           type="submit"
           class="btn btn-primary"
         >
