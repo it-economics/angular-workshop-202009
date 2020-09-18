@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from "@angular/router";
+import { AuthService } from "src/app/services/auth.service";
 
 interface Credentials {
   email: string;
@@ -16,9 +18,20 @@ export class LoginComponent implements OnInit {
     password: undefined,
   };
 
-  constructor() {}
+  constructor(
+    private readonly authService: AuthService,
+    private readonly router: Router
+  ) {}
 
   ngOnInit(): void {}
 
-  login() {}
+  login() {
+    this.authService.login(this.model.email, this.model.password).subscribe((isLoggedIn) => {
+      if (isLoggedIn) {
+        this.router.navigate([ "/hello" ]);
+      } else {
+        console.warn("Unauthorized");
+      }
+    });
+  }
 }

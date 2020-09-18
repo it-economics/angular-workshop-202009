@@ -18,6 +18,8 @@ import { TemperaturPipe } from './pipes/temperatur.pipe';
 import { LoginComponent } from './components/login/login.component';
 import { CustomValidatorDirective } from './directives/custom-validator.directive';
 import { RegistrationComponent } from './components/registration/registration.component';
+import { AppRoutingModule } from "./app-routing.module";
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +33,7 @@ import { RegistrationComponent } from './components/registration/registration.co
     LoginComponent,
     CustomValidatorDirective,
     RegistrationComponent,
+    PageNotFoundComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,6 +44,7 @@ import { RegistrationComponent } from './components/registration/registration.co
     NgbModule,
     FormsModule,
     ReactiveFormsModule,
+    AppRoutingModule
   ],
   providers: [
     {
